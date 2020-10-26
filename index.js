@@ -1,10 +1,10 @@
 const Mam = require("@iota/mam");
 const Converter = require("@iota/converter")
 const Microgear = require("microgear")
-
-const APPID = "IOTADHT11";
-  const KEY = "tUyxQy8A3852y2s";
-  const SECRET = "GcHYWDtJh5kBlzjVdhUZNlAxy";
+// hidden key for security
+const APPID = "XXXXX";
+  const KEY = "XXXXXXXX";
+  const SECRET = "XXXXXXXXX";
 
   const ALIAS = "HTML_web";         //  ชื่อตัวเอง
   const thing1 = "NodeMCU1";          //  ชื่อเพื่อนที่จะคุย
