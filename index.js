@@ -27,19 +27,19 @@ const APPID = "IOTADHT11";
     }
   });
 
-  microgear.on('connected', function() {
+  microgear.on('connected', () => {
     microgear.setAlias(ALIAS);
   });
 
-  microgear.on('present', function(event) {
+  microgear.on('present', (event) => {
     console.log("<<< presentpresentpresent>>>",event);
   });
 
-  microgear.on('absent', function(event) {
+  microgear.on('absent', (event) => {
     console.log("<<<< absentabsentabsent>>>",event);
   });
 
-  microgear.resettoken(function(err) {
+  microgear.resettoken((err) => {
     microgear.connect(APPID);
   });
 
@@ -47,14 +47,11 @@ const APPID = "IOTADHT11";
   let state = Mam.init('https://nodes.devnet.iota.org:443');
   console.log("<<<statestate***>>",state);
   
-const publish = async function (packet) {
-    console.log('publishpublish>>>>',packet)
+const publish = async (packet) => {
     const trytes = Converter.asciiToTrytes(JSON.stringify(packet));
     const message = Mam.create(state, trytes);
     state = message.state;
-    console.log("<<<<publish = async function (packet>>>>",state);
 
     await Mam.attach(message.payload, message.address);
-    console.log("Mam.attachMam.attachMam.attach>>",message);
     return message.root;
 };
